@@ -20,6 +20,7 @@ class ZagrosCoreServiceProvider extends ServiceProvider {
 	{
 		$this->package('mohsen/zagros-core', 'ZagrosCore');
 
+		require __DIR__.'../../../filters.php';
 		require __DIR__.'../../../routes.php';
 	}
 
