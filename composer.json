@@ -1,0 +1,27 @@
+{
+    "name": "mohsen/zagros-core",
+    "description": "",
+    "authors": [
+        {
+            "name": "mohsen",
+            "email": "mohsen.sh12@hotmail.com"
+        }
+    ],
+    "require": {
+        "php": ">=5.4.0",
+        "illuminate/support": "4.2.*"
+    },
+    "autoload": {
+        "classmap": [
+            "src/migrations",
+            "src/controllers",
+            "src/models",
+            "src/views",
+            "src/classes"
+        ],
+        "psr-0": {
+            "Mohsen\\ZagrosCore\\": "src/"
+        }
+    },
+    "minimum-stability": "stable"
+}
