@@ -1,6 +1,7 @@
 {
     "name": "mohsen/zagros-core",
-    "description": "",
+    "description": "Core of mohsen/zagros project",
+    "license": "MIT",
     "authors": [
         {
             "name": "mohsen",
@@ -18,6 +19,9 @@
             "src/models",
             "src/views",
             "src/classes"
+        ],
+        "files": [
+            "src/config/defines.php"
         ],
         "psr-0": {
             "Mohsen\\ZagrosCore\\": "src/"
