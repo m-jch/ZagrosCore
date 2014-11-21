@@ -54,7 +54,7 @@ class AdminController extends BaseController
         }
 
         $project->name = Input::get('name');
-        $project->url = Str::slug(Input::get('name'));
+        $project->url = Helper::slug(Input::get('name'));
         $project->repository = Input::get('repository');
         $project->description = Input::get('description');
 

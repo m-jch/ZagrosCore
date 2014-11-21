@@ -131,4 +131,15 @@ class Helper
     {
         return HTML::image('http://gravatar.com/avatar/'.md5(strtolower(trim($email))).'?s=60', 'avatar', array('class' => 'avatar'));
     }
+
+    public static function slug($text)
+    {
+        $text = preg_replace('~[^\\pL\d]+~u', '-', $text);
+        $text = trim($text, '-');
+        $text = strtolower($text);
+        if (empty($text))
+            return false;
+            
+        return $text;
+    }
 }
