@@ -50,7 +50,7 @@ Route::filter('valid-project-user', function($route)
 						->first();
 	if (!$project)
 	{
-		return Redirect::to('/')->with('message', trans('messages.form_error'));
+		return Redirect::to('/')->with('message', trans('ZagrosCore::messages.form_error'));
 	}
 });
 
@@ -63,7 +63,7 @@ Route::filter('valid-milestone', function($route)
 
 	if (!isset($project->milestone->milestone_id))
 	{
-		return Redirect::action('ProjectController@getIndex', $project->url)->with('message', trans('messages.form_error'));
+		return Redirect::action('ProjectController@getIndex', $project->url)->with('message', trans('ZagrosCore::messages.form_error'));
 	}
 });
 
@@ -71,7 +71,7 @@ Route::filter('admin-project', function()
 {
 	if (!Auth::user()->is_admin)
 	{
-		return Redirect::action('ProjectController@getIndex', Route::input('project'))->with('message', trans('messages.form_error'));
+		return Redirect::action('ProjectController@getIndex', Route::input('project'))->with('message', trans('ZagrosCore::messages.form_error'));
 	}
 });
 
@@ -79,7 +79,7 @@ Route::filter('not-reader', function()
 {
 	if (Auth::user()->is_reader)
 	{
-		return Redirect::action('ProjectController@getIndex', Route::input('project'))->with('message', trans('messages.form_error'));
+		return Redirect::action('ProjectController@getIndex', Route::input('project'))->with('message', trans('ZagrosCore::messages.form_error'));
 	}
 });
 

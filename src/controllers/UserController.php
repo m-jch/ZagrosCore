@@ -23,7 +23,7 @@ class UserController extends BaseController
         $v = Validator::make(Input::all(), User::$loginRules);
         if ($v->fails())
         {
-            return Redirect::back()->withErrors($v)->withInput()->with('message', trans('messages.form_error'));
+            return Redirect::back()->withErrors($v)->withInput()->with('message', trans('ZagrosCore::messages.form_error'));
         }
 
         if (Auth::attempt(array('email' => Input::get('email'), 'password' => Input::get('password')), Input::get('remember')))
@@ -31,7 +31,7 @@ class UserController extends BaseController
             Event::fire('user.login');
             return Redirect::action('HomeController@getIndex');
         }
-        return Redirect::back()->withInput()->with('message', trans('messages.login_error'));
+        return Redirect::back()->withInput()->with('message', trans('ZagrosCore::messages.login_error'));
     }
 
     public function getRegister()
@@ -44,7 +44,7 @@ class UserController extends BaseController
         $v = Validator::make(Input::all(), User::$registerRules);
         if ($v->fails())
         {
-            return Redirect::back()->withErrors($v)->withInput()->with('message', trans('messages.form_error'));
+            return Redirect::back()->withErrors($v)->withInput()->with('message', trans('ZagrosCore::messages.form_error'));
         }
 
         $user = new User;
@@ -54,7 +54,7 @@ class UserController extends BaseController
         $user->save();
         Event::fire('user.register', $user);
 
-        return Redirect::action('UserController@getLogin')->with('message', trans('messages.register_success'));
+        return Redirect::action('UserController@getLogin')->with('message', trans('ZagrosCore::messages.register_success'));
     }
 
     public function getLogout()

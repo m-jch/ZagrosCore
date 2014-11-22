@@ -20,23 +20,23 @@ class AdminController extends BaseController
         if (!is_null(Input::get('update')))
         {
             $project = Project::find(Input::get('project_id'));
-            $message = trans('messages.create_project');
+            $message = trans('ZagrosCore::messages.create_project');
         }
         else
         {
             $project = new Project;
-            $message = trans('messages.update_project');
+            $message = trans('ZagrosCore::messages.update_project');
         }
 
         if (!$project)
         {
-            return Redirect::action('HomeController@getIndex')->with('message', trans('messages.form_error'));
+            return Redirect::action('HomeController@getIndex')->with('message', trans('ZagrosCore::messages.form_error'));
         }
 
         $v = Validator::make(Input::all(), Project::getRules(Input::get('update'), $project->project_id));
         if ($v->fails())
         {
-            return Redirect::back()->withErrors($v)->withInput()->with('message', trans('messages.form_error'));
+            return Redirect::back()->withErrors($v)->withInput()->with('message', trans('ZagrosCore::messages.form_error'));
         }
 
         $admins = is_array(Input::get('admins')) ? Input::get('admins') : array();
@@ -64,7 +64,7 @@ class AdminController extends BaseController
 
         $project->save();
 
-        return Redirect::action('HomeController@getIndex')->with('message', trans('messages.create_project'));
+        return Redirect::action('HomeController@getIndex')->with('message', trans('ZagrosCore::messages.create_project'));
     }
 
     public function getUpdateProject($id = null)
@@ -84,7 +84,7 @@ class AdminController extends BaseController
                 'readers' => $readers
             ));
         }
-        return Redirect::action('HomeController@getIndex')->with('message', trans('messages.form_error'));
+        return Redirect::action('HomeController@getIndex')->with('message', trans('ZagrosCore::messages.form_error'));
     }
 
     public function getCreateUser()
@@ -97,23 +97,23 @@ class AdminController extends BaseController
         if (!is_null(Input::get('update')))
         {
             $user = User::find(Input::get('user_id'));
-            $message = trans('messages.update_user');
+            $message = trans('ZagrosCore::messages.update_user');
         }
         else
         {
             $user = new User;
-            $message = trans('messages.create_user');
+            $message = trans('ZagrosCore::messages.create_user');
         }
 
         if (!$user)
         {
-            return Redirect::back()->withErrors($v)->withInput()->with('message', trans('messages.form_error'));
+            return Redirect::back()->withErrors($v)->withInput()->with('message', trans('ZagrosCore::messages.form_error'));
         }
 
         $v = Validator::make(Input::all(), User::getRules(Input::get('update'), $user->user_id));
         if ($v->fails())
         {
-            return Redirect::back()->withErrors($v)->withInput()->with('message', trans('messages.form_error'));
+            return Redirect::back()->withErrors($v)->withInput()->with('message', trans('ZagrosCore::messages.form_error'));
         }
 
         $user->email = Input::get('email');
@@ -136,9 +136,9 @@ class AdminController extends BaseController
         if ($project)
         {
             $project->delete();
-            return Redirect::to('/')->with('message', trans('messages.delete_project'));
+            return Redirect::to('/')->with('message', trans('ZagrosCore::messages.delete_project'));
         }
-        return Redirect::to('/')->with('message', trans('messages.form_error'));
+        return Redirect::to('/')->with('message', trans('ZagrosCore::messages.form_error'));
     }
 
     public function getUpdateUser($userId)
@@ -174,7 +174,7 @@ class AdminController extends BaseController
         );
         $v = Validator::make(Input::all(), $rule);
         if ($v->fails())
-            return Redirect::action('AdminController@getUsersList')->with('message', trans('messages.form_error'));
+            return Redirect::action('AdminController@getUsersList')->with('message', trans('ZagrosCore::messages.form_error'));
 
         $newUser = Input::get('new_user');
 
@@ -219,7 +219,7 @@ class AdminController extends BaseController
 
         $user->delete();
 
-        return Redirect::action('AdminController@getUsersList')->with('message', trans('messages.delete_user'));
+        return Redirect::action('AdminController@getUsersList')->with('message', trans('ZagrosCore::messages.delete_user'));
     }
 
     public function postUsers()

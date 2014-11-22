@@ -54,24 +54,24 @@ class MilestoneController extends BaseController
         {
             $blueprint = Blueprint::find(Input::get('blueprint_id'));
             $oldBlueprint = $blueprint->toArray();
-            $message = trans('messages.update_blueprint');
+            $message = trans('ZagrosCore::messages.update_blueprint');
         }
         else
         {
             $blueprint = new Blueprint;
             $blueprint->user_id_created = Auth::id();
-            $message = trans('messages.create_blueprint');
+            $message = trans('ZagrosCore::messages.create_blueprint');
         }
 
         if (!$blueprint)
         {
-            return Redirect::action('MilestoneController@getIndex', array($project->url, $milestone->url))->with('message', trans('messages.form_error'));
+            return Redirect::action('MilestoneController@getIndex', array($project->url, $milestone->url))->with('message', trans('ZagrosCore::messages.form_error'));
         }
 
         $v = Validator::make(Input::all(), Blueprint::getRules(Input::get('update'), $blueprint->blueprint_id));
         if ($v->fails())
         {
-            return Redirect::back()->withErrors($v)->withInput()->with('message', trans('messages.form_error'));
+            return Redirect::back()->withErrors($v)->withInput()->with('message', trans('ZagrosCore::messages.form_error'));
         }
 
         $blueprint->title = Input::get('title');
@@ -102,7 +102,7 @@ class MilestoneController extends BaseController
 
         if (!$project->milestone->blueprint)
         {
-            return Redirect::action('MilestoneController@getIndex', array($project->url, $project->milestone->url))->with('message', trans('messages.form_error'));
+            return Redirect::action('MilestoneController@getIndex', array($project->url, $project->milestone->url))->with('message', trans('ZagrosCore::messages.form_error'));
         }
 
         return View::make('ZagrosCore::milestone.blueprint.update-blueprint')->with(array(
@@ -118,10 +118,10 @@ class MilestoneController extends BaseController
         {
             $blueprint->delete();
             Events::where('blueprint_id', $blueprintId)->delete();
-            return Redirect::action('MilestoneController@getIndex', array($projectUrl, $milestoneUrl))->with('message', trans('messages.delete_blueprint'));
+            return Redirect::action('MilestoneController@getIndex', array($projectUrl, $milestoneUrl))->with('message', trans('ZagrosCore::messages.delete_blueprint'));
         }
 
-        return Redirect::action('MilestoneController@getIndex', array($projectUrl, $milestoneUrl))->with('message', trans('messages.form_error'));
+        return Redirect::action('MilestoneController@getIndex', array($projectUrl, $milestoneUrl))->with('message', trans('ZagrosCore::messages.form_error'));
     }
 
     public function getBlueprint($projectUrl, $milestoneUrl, $blueprintId)
@@ -136,7 +136,7 @@ class MilestoneController extends BaseController
 
         if (!isset($project->milestone->blueprint))
         {
-            return Redirect::action('MilestoneController@getIndex', array($project->url, $project->milestone->url))->with('message', trans('messages.form_error'));
+            return Redirect::action('MilestoneController@getIndex', array($project->url, $project->milestone->url))->with('message', trans('ZagrosCore::messages.form_error'));
         }
 
         return View::make('ZagrosCore::milestone.blueprint.blueprint')->with(array(
@@ -202,24 +202,24 @@ class MilestoneController extends BaseController
         {
             $bug = Bug::find(Input::get('bug_id'));
             $oldBug = $bug->toArray();
-            $message = trans('messages.update_bug');
+            $message = trans('ZagrosCore::messages.update_bug');
         }
         else
         {
             $bug = new Bug;
             $bug->user_id_created = Auth::id();
-            $message = trans('messages.create_bug');
+            $message = trans('ZagrosCore::messages.create_bug');
         }
 
         if (!$bug)
         {
-            return Redirect::action('MilestoneController@getIndex', array($project->url, $project->milestone->url))->with('message', trans('messages.form_error'));
+            return Redirect::action('MilestoneController@getIndex', array($project->url, $project->milestone->url))->with('message', trans('ZagrosCore::messages.form_error'));
         }
 
         $v = Validator::make(Input::all(), Bug::getRules(Input::get('update'), $bug->bug_id));
         if ($v->fails())
         {
-            return Redirect::back()->withErrors($v)->withInput()->with('message', trans('messages.form_error'));
+            return Redirect::back()->withErrors($v)->withInput()->with('message', trans('ZagrosCore::messages.form_error'));
         }
 
         $bug->title = Input::get('title');
@@ -293,7 +293,7 @@ class MilestoneController extends BaseController
 
         if (!isset($project->milestone->bug))
         {
-            return Redirect::action('MilestoneController@getIndex', array($project->url, $project->milestone->url))->with('message', trans('messages.form_error'));
+            return Redirect::action('MilestoneController@getIndex', array($project->url, $project->milestone->url))->with('message', trans('ZagrosCore::messages.form_error'));
         }
 
         return View::make('ZagrosCore::milestone.bug.bug')->with(array(
@@ -313,7 +313,7 @@ class MilestoneController extends BaseController
 
         if (!$project->milestone->bug)
         {
-            return Redirect::action('MilestoneController@getIndex', array($project->url, $project->milestone->url))->with('message', trans('messages.form_error'));
+            return Redirect::action('MilestoneController@getIndex', array($project->url, $project->milestone->url))->with('message', trans('ZagrosCore::messages.form_error'));
         }
 
         return View::make('ZagrosCore::milestone.bug.update-bug')->with(array(
@@ -329,10 +329,10 @@ class MilestoneController extends BaseController
         {
             $bug->delete();
             Events::where('bug_id', $bugId)->delete();
-            return Redirect::action('MilestoneController@getIndex', array($projectUrl, $milestoneUrl))->with('message', trans('messages.delete_bug'));
+            return Redirect::action('MilestoneController@getIndex', array($projectUrl, $milestoneUrl))->with('message', trans('ZagrosCore::messages.delete_bug'));
         }
 
-        return Redirect::action('MilestoneController@getIndex', array($projectUrl, $milestoneUrl))->with('message', trans('messages.form_error'));
+        return Redirect::action('MilestoneController@getIndex', array($projectUrl, $milestoneUrl))->with('message', trans('ZagrosCore::messages.form_error'));
 
     }
 
