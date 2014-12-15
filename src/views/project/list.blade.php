@@ -7,7 +7,7 @@
 @section('projects-navbar')active @stop
 
 @section('content')
-    <div class="col-md-6 col-md-offset-3">
+    <div class="col-md-6 col-md-offset-3 list">
         <h2 class="text-center">{{trans('ZagrosCore::layout.projects')}}</h2>
         @if (Session::has('message'))
             <p class="text-info text-center">{{Session::get('message')}}</p>

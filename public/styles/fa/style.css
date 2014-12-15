@@ -1,0 +1,33 @@
+body {
+    font-family: 'Nazanin';
+    direction: rtl;
+}
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Titr';
+}
+form label {
+    float: right!important;
+}
+.radio input[type=radio], .radio-inline input[type=radio], .checkbox input[type=checkbox], .checkbox-inline input[type=checkbox] {
+    margin-right: -20px !important;
+}
+small {
+    font-family: 'Nazanin';
+}
+.list small {
+    float: left !important;
+}
+.users-list .btn {
+    float: left !important;
+}
+.ms-ctn .ms-trigger .ms-trigger-ico {
+    margin-right: 8px;
+}
+table th, table td {
+    text-align: right;
+}
+@media (min-width: 768px) {
+    .navbar-nav>li {
+        float: right;
+    }
+}

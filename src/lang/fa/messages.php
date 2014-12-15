@@ -30,4 +30,10 @@ return array(
     'delete_user_change' => 'متصل کردن تمام اهداف و خطاهای ایجاد شده توسط این کاربر به کاربر:',
     'change_password' => 'اگر نمیخواهید رمز عبور را تغییر دهید، آنرا خالی رها کنید.',
     'nfu' => 'هیچ کاربری یافت نشد.',
+    'updated_status' => ':user وضعیت را از :before به :after تغییر داد.',
+    'updated_importance' => ':user اهمیت را از :before به :after تغییر داد.',
+    'updated_title' => ':user عنوان را از :before به :after تغییر داد.',
+    'updated_description' => ':user توضیحات را تغییر داد.',
+    'updated_user_assigned' => ':user مسئولیت را از :before به :after تغییر داد.',
+    'updated_parent' => ':user والد را از :before به :after تغییر داد'
 );

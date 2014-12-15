@@ -38,10 +38,10 @@ return array(
     'update_milestone' => 'بروزرسانی نسخه',
     'delete_milestone' => 'حذف نسخه',
     'blueprint' => 'نسخه',
-    'blueprints' => 'نسخه ها',
-    'blueprint_title' => 'عنوان نسخه',
-    'update_blueprint' => 'بروزرسانی نسخه',
-    'delete_blueprint' => 'حذف نسخه',
+    'blueprints' => 'اهداف',
+    'blueprint_title' => 'عنوان هدف',
+    'update_blueprint' => 'بروزرسانی هدف',
+    'delete_blueprint' => 'حذف هدف',
     'bug' => 'خطا',
     'bugs' => 'خطا ها',
     'bug_title' => 'عنوان خطا',
@@ -95,5 +95,7 @@ return array(
     'implemented' => 'اجرا شده',
     'admin_projects' => 'ادمین پروژه های',
     'writer_projects' => 'نویسنده پروژه های',
-    'reader_projects' => 'خواننده پروژه های'
+    'reader_projects' => 'خواننده پروژه های',
+    'not_yet_released' => 'هنوز منتشر نشده است',
+    'not_assigned' => 'مشخص نشده است',
 );

@@ -7,7 +7,7 @@
 @section('milestones-navbar')active @stop
 
 @section('content')
-    <div class="col-md-6 col-md-offset-3">
+    <div class="col-md-6 col-md-offset-3 list">
         <h2 class="text-center">{{trans('ZagrosCore::layout.milestones')}}</h2>
         @if (Session::has('message'))
             <p class="text-info text-center">{{Session::get('message')}}</p>
@@ -19,10 +19,10 @@
                     @if (!empty($milestone->release_date))
                         <small>({{$milestone->release_date}})</small>
                     @else
-                        <small>(Not yet released)</small>
+                        <small>({{trans('ZagrosCore::layout.not_yet_released')}})</small>
                     @endif
                     @if (Auth::user()->is_admin)
-                        <small class="pull-right"> <a href="{{URL::action('ProjectController@getEdit', $project->url, $milestone->milestone_id)}}/{{$milestone->milestone_id}}">Edit</a></small>
+                        <small class="pull-right"> <a href="{{URL::action('ProjectController@getEdit', $project->url, $milestone->milestone_id)}}/{{$milestone->milestone_id}}">{{trans('ZagrosCore::layout.edit')}}</a></small>
                     @endif
                 </h4>
                 <small>{{$milestone->description}}</small>
