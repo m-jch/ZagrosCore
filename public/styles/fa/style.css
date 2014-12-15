@@ -5,6 +5,9 @@ body {
 h1, h2, h3, h4, h5, h6 {
     font-family: 'Titr';
 }
+#header h1+small {
+    float: right;
+}
 form label {
     float: right!important;
 }
@@ -29,5 +32,10 @@ table th, table td {
 @media (min-width: 768px) {
     .navbar-nav>li {
         float: right;
+    }
+}
+@media (max-width: 767px) {
+    .navbar-nav .open .dropdown-menu>li>a {
+        text-align: right;
     }
 }
