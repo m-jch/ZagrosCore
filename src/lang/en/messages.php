@@ -30,4 +30,10 @@ return array(
     'delete_user_change' => 'Change author of bug and blueprint created by this user to:',
     'change_password' => 'Leave empty this if you don\'t change password.',
     'nfu' => 'Not found any user',
+    'updated_status' => ':user changed status from :before to :after',
+    'updated_importance' => ':user changed importance from :before to :after',
+    'updated_title' => ':user changed title from :before to :after',
+    'updated_description' => ':user changed description',
+    'updated_user_assigned' => ':user changed assigned from :before to :after',
+    'updated_parent' => ':user changed parent from :before to :after'
 );

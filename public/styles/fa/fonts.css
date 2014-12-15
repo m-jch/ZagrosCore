@@ -1,0 +1,12 @@
+@font-face {
+    font-family: 'Titr';
+    font-style: normal;
+    font-weight: 400;
+    src: local('B Titr'), url(../../fonts/Titr.woff) format('woff');
+}
+@font-face {
+    font-family: 'Nazanin';
+    font-style: normal;
+    font-weight: 400;
+    src: local('B Nazanin'), url(../../fonts/Nazanin.woff) format('woff');
+}

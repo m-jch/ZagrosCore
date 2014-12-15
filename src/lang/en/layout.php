@@ -71,6 +71,7 @@ return array(
     'cancel' => 'Cancel',
     'registred_by' => 'Registred by',
     'assign_to' => 'Assign to',
+    'not_assigned' => 'Not Assigned',
     'created_at:' => 'Created at',
     'updated_at' => 'Updated at',
     'changes' => 'Changes',
@@ -95,5 +96,6 @@ return array(
     'implemented' => 'Implemented',
     'admin_projects' => 'Admin projects',
     'writer_projects' => 'Writer projects',
-    'reader_projects' => 'Reader projects'
+    'reader_projects' => 'Reader projects',
+    'not_yet_released' => 'Not yet released'
 );

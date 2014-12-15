@@ -25,7 +25,7 @@
                         </tr>
                         <tr>
                             <td><b>{{trans('ZagrosCore::layout.assign_to')}}</b></td>
-                            <td>{{isset($project->milestone->blueprint->user_assigned->name) ? $project->milestone->blueprint->user_assigned->name : 'Not Assigned'}}</td>
+                            <td>{{isset($project->milestone->blueprint->user_assigned->name) ? $project->milestone->blueprint->user_assigned->name : trans('ZagrosCore::layout.not_assigned')}}</td>
                         </tr>
                         <tr>
                             <td><b>{{trans('ZagrosCore::layout.created_at')}}</b></td>
@@ -58,7 +58,7 @@
             </div>
             <div class="col-md-12">
                 @if (Auth::user()->is_admin)
-                    <a class="pull-right btn btn-default" href="{{URL::action('MilestoneController@getUpdateBlueprint', array($project->url, $project->milestone->url, $project->milestone->blueprint->blueprint_id))}}">Update</a>
+                    <a class="pull-right btn btn-default" href="{{URL::action('MilestoneController@getUpdateBlueprint', array($project->url, $project->milestone->url, $project->milestone->blueprint->blueprint_id))}}">{{trans('ZagrosCore::layout.update')}}</a>
                 @endif
             </div>
             <div class="col-md-12">

@@ -148,22 +148,22 @@ class MilestoneController extends BaseController
     {
         $changes = '';
         if ($oldBlueprint['status'] !== $newBlueprint->status)
-            $changes .= '<li>'.Auth::user()->name.' change status from '.Helper::getBlueprintStatus($oldBlueprint['status']).' to '.Helper::getBlueprintStatus($newBlueprint->status).'</li>';
+            $changes .= '<li>'.trans('ZagrosCore::messages.updated_status', array('user' => Auth::user()->name, 'before' => Helper::getBlueprintStatus($oldBlueprint['status']), 'after' => Helper::getBlueprintStatus($newBlueprint->status))).'</li>';
 
         if ($oldBlueprint['importance'] !== $newBlueprint->importance)
-            $changes .= '<li>'.Auth::user()->name.' change importance from '.Helper::getBlueprintImportance($oldBlueprint['importance']).' to '.Helper::getBlueprintImportance($newBlueprint->importance).'</li>';
+            $changes .= '<li>'.trans('ZagrosCore::messages.updated_importance', array('user' => Auth::user()->name, 'before' => Helper::getBlueprintImportance($oldBlueprint['importance']), 'after' => Helper::getBlueprintImportance($newBlueprint->importance))).'</li>';
 
         if ($oldBlueprint['title'] !== $newBlueprint->title)
-            $changes .= '<li>'.Auth::user()->name.' change title from <i>'.$oldBlueprint['title'].'</i> to <i>'.$newBlueprint->title.'</i></li>';
+            $changes .= '<li>'.trans('ZagrosCore::messages.updated_title', array('user' => Auth::user()->name, 'before' => $oldBlueprint['title'], 'after' => $newBlueprint->title)).'</li>';
 
         if ($oldBlueprint['description'] !== $newBlueprint->description)
-            $changes .= '<li>'.Auth::user()->name.' change description';
+            $changes .= '<li>'.trans('ZagrosCore::messages.updated_description', array('user' => Auth::user()->name)).'</li>';
 
         if ($oldBlueprint['user_id_assigned'] !== $newBlueprint->user_id_assigned)
         {
             $oldUser = !empty($oldBlueprint['user_id_assigned']) ? User::find($oldBlueprint['user_id_assigned'])->name : 'None';
             $newUser = !empty($newBlueprint->user_id_assigned) ? User::find($newBlueprint->user_id_assigned)->name : 'None';
-            $changes .= '<li>'.Auth::user()->name.' change assigned from '.$oldUser.' to '.$newUser.'</li>';
+            $changes .= '<li>'.trans('ZagrosCore::messages.updated_user_assigned', array('user' => Auth::user()->name, 'before' => $oldUser, 'after' => $newUser)).'</li>';
         }
 
         if (!empty($changes) || !empty($description))
@@ -243,29 +243,29 @@ class MilestoneController extends BaseController
     {
         $changes = '';
         if ($oldBug['status'] !== $newBug->status)
-            $changes .= '<li>'.Auth::user()->name.' change status from '.Helper::getBugStatus($oldBug['status']).' to '.Helper::getBugStatus($newBug->status).'</li>';
+            $changes .= '<li>'.trans('ZagrosCore::messages.updated_status', array('user' => Auth::user()->name, 'before' => Helper::getBugStatus($oldBug['status']), 'after' => Helper::getBugStatus($newBug->status))).'</li>';
 
         if ($oldBug['importance'] !== $newBug->importance)
-            $changes .= '<li>'.Auth::user()->name.' change importance from '.Helper::getBugImportance($oldBug['importance']).' to '.Helper::getBugImportance($newBug->importance).'</li>';
+            $changes .= '<li>'.trans('ZagrosCore::messages.updated_importance', array('user' => Auth::user()->name, 'before' => Helper::getBugImportance($oldBug['importance']), 'after' => Helper::getBugImportance($newBug->importance))).'</li>';
 
         if ($oldBug['title'] !== $newBug->title)
-            $changes .= '<li>'.Auth::user()->name.' change title from <i>'.$oldBug['title'].'</i> to <i>'.$newBug->title.'</i></li>';
+            $changes .= '<li>'.trans('ZagrosCore::messages.updated_title', array('user' => Auth::user()->name, 'before' => $oldBug['title'], 'after' => $newBug->title)).'</li>';
 
         if ($oldBug['description'] !== $newBug->description)
-            $changes .= '<li>'.Auth::user()->name.' change description';
+            $changes .= '<li>'.trans('ZagrosCore::messages.updated_description', array('user' => Auth::user()->name)).'</li>';
 
         if ($oldBug['user_id_assigned'] !== $newBug->user_id_assigned)
         {
             $oldUser = !empty($oldBug['user_id_assigned']) ? User::find($oldBug['user_id_assigned'])->name : 'None';
             $newUser = !empty($newBug->user_id_assigned) ? User::find($newBug->user_id_assigned)->name : 'None';
-            $changes .= '<li>'.Auth::user()->name.' change assigned from '.$oldUser.' to '.$newUser.'</li>';
+            $changes .= '<li>'.trans('ZagrosCore::messages.updated_user_assigned', array('user' => Auth::user()->name, 'before' => $oldUser, 'after' => $newUser)).'</li>';
         }
 
         if ($oldBug['blueprint_id'] !== $newBug->blueprint_id)
         {
             $oldBlueprint = !empty($oldBug['blueprint_id']) ? Blueprint::find($oldBug['blueprint_id'])->title : 'None';
             $newBlueprint = !empty($newBug->blueprint_id) ? Blueprint::find($newBug->blueprint_id)->title : 'None';
-            $changes .= '<li>'.Auth::user()->name.' change parent from '.$oldBlueprint.' to '.$newBlueprint.'</li>';
+            $changes .= '<li>'.trans('ZagrosCore::messages.updated_parent', array('user' => Auth::user()->name, 'before' => $oldBlueprint, 'after' => $newBlueprint)).'</li>';
         }
 
         if (!empty($changes) || !empty($description))
